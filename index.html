@@ -647,35 +647,29 @@
             </p>
           </div>
 
-          <!-- Download Button & Action -->
-          <div class="flex items-center space-x-2">
-            <button id="download-ppt-btn" class="gradient-btn text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center shadow-md">
-              <i class="fa-solid fa-download mr-2"></i> Download presentasi.pptx
-            </button>
-          </div>
-        </div>
-
-        <!-- Slide Interactive Previewer -->
-        <div class="relative bg-slate-900 rounded-2xl overflow-hidden shadow-inner aspect-[16/9] flex items-center justify-center border border-pastel-blueSoft">
-          <div id="slide-display-area" class="w-full h-full flex flex-col items-center justify-center p-6 text-center text-white">
-            <!-- Rendered by JS -->
-          </div>
-
-          <button id="prev-slide-btn" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button id="next-slide-btn" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <div class="flex items-center justify-between mt-4 text-xs sm:text-sm">
-          <span id="slide-counter" class="font-bold text-pastel-darkText bg-pastel-blueSoft px-3 py-1 rounded-lg">Slide 1 / 4</span>
-          <button id="fullscreen-ppt-btn" class="px-3 py-1.5 bg-pastel-pinkSoft hover:bg-pastel-pinkAccent text-pastel-pinkDeep rounded-lg font-semibold transition">
-            <i class="fa-solid fa-expand mr-1"></i> Fullscreen Slide
-          </button>
-        </div>
-      </div>
+  <div class="container"> 
+    <div class="card"> 
+      <h1>📊 Presentasi Kabel LAN / Ethernet</h1> 
+      <p class="description"> Presentasi Oriska Lestari • Kelas 1TIA </p> 
+      
+      <!-- ========================================== PREVIEW PPT GOOGLE DRIVE ========================================== --> 
+      <div class="ppt-frame"> 
+        <iframe 
+          src="https://docs.google.com/presentation/d/1zp4QQdqqkb4yIU-9TFJV_rwNwHoD_vWj/edit?usp=drivesdk&ouid=118017947233116267442&rtpof=true&sd=true" allow="autoplay"> 
+        </iframe> 
+      </div> 
+      <!-- ========================================== DOWNLOAD PPT ========================================== --> 
+      <div class="download-area"> 
+        <a href="https://docs.google.com/presentation/d/1zp4QQdqqkb4yIU-9TFJV_rwNwHoD_vWj/edit?usp=drivesdk&ouid=118017947233116267442&rtpof=true&sd=true" class="download-btn"> 
+          ⬇️ Download PPT </a> </div> 
+      <!-- INFORMASI --> 
+      <div class="info"> 
+        <strong>📌 Materi Presentasi</strong> 
+        <p> Presentasi membahas pengertian Kabel LAN/Ethernet, alat-alat yang digunakan, cara membuat kabel LAN, cara menghubungkan dua laptop, pengecekan koneksi, dan cara transfer file antar laptop. 
+        </p> 
+      </div> 
+    </div> 
+  </div>
     </section>
 
     <section id="video-section" class="scroll-mt-20">
@@ -772,28 +766,5 @@
     </div>
   </footer>
 
-  <div class="container"> 
-    <div class="card"> 
-      <h1>📊 Presentasi Kabel LAN / Ethernet</h1> 
-      <p class="description"> Presentasi Oriska Lestari • Kelas 1TIA </p> 
-      
-      <!-- ========================================== PREVIEW PPT GOOGLE DRIVE ========================================== --> 
-      <div class="ppt-frame"> 
-        <iframe 
-          src="https://docs.google.com/presentation/d/1zp4QQdqqkb4yIU-9TFJV_rwNwHoD_vWj/edit?usp=drivesdk&ouid=118017947233116267442&rtpof=true&sd=true" allow="autoplay"> 
-        </iframe> 
-      </div> 
-      <!-- ========================================== DOWNLOAD PPT ========================================== --> 
-      <div class="download-area"> 
-        <a href="https://docs.google.com/presentation/d/1zp4QQdqqkb4yIU-9TFJV_rwNwHoD_vWj/edit?usp=drivesdk&ouid=118017947233116267442&rtpof=true&sd=true" class="download-btn"> 
-          ⬇️ Download PPT </a> </div> 
-      <!-- INFORMASI --> 
-      <div class="info"> 
-        <strong>📌 Materi Presentasi</strong> 
-        <p> Presentasi membahas pengertian Kabel LAN/Ethernet, alat-alat yang digunakan, cara membuat kabel LAN, cara menghubungkan dua laptop, pengecekan koneksi, dan cara transfer file antar laptop. 
-        </p> 
-      </div> 
-    </div> 
-  </div>
 </body>
 </html>
