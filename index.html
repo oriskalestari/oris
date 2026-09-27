@@ -772,227 +772,28 @@
     </div>
   </footer>
 
-  <script>
-    /* ======================================================
-       1. PPT INTERACTIVE SLIDES PROTOTYPE DATA & RENDERER
-       ====================================================== */
-    const pptSlides = [
-      {
-        title: "Kabel LAN & Ethernet Networking",
-        subtitle: "Politeknik Negeri Sriwijaya - Jurusan Teknik Komputer",
-        bullets: [
-          "Definisi & Fungsi Kabel LAN sebagai media transmisi lokal.",
-          "Mata Kuliah: Jaringan Komputer",
-          "Dosen Pengampu: Dr. Ali Firdaus, S.Kom., M.Kom.",
-          "Disusun oleh: Oriska Lestari (Kelas 1TIA)"
-        ],
-        bg: "from-slate-900 to-indigo-950"
-      },
-      {
-        title: "Perbandingan T568A vs T568B & Kabel Cross",
-        subtitle: "Standar Internasional Pengabelan UTP",
-        bullets: [
-          "Straight-Through: Penghubung dua perangkat berbeda (Laptop -> Switch). Kedua ujung T568B.",
-          "Crossover (Cross): Penghubung dua perangkat sama (Laptop A -> Laptop B). Ujung 1 T568A, Ujung 2 T568B.",
-          "8 Kawat Terpilin: Putih Oranye, Oranye, Putih Hijau, Biru, Putih Biru, Hijau, Putih Cokelat, Cokelat."
-        ],
-        bg: "from-slate-900 to-pastel-pinkDeep/40"
-      },
-      {
-        title: "Langkah Perakitan Kabel LAN",
-        subtitle: "SOP Crimping & Pengujian",
-        bullets: [
-          "1. Kupas jaket kabel UTP ± 2 cm.",
-          "2. Susun urutan kawat kencang & lurus.",
-          "3. Potong ratakan ujung kawat dan dorong ke RJ-45.",
-          "4. Crimp dengan Tang Crimp & Uji dengan LAN Cable Tester."
-        ],
-        bg: "from-slate-900 to-pastel-blueAccent/40"
-      },
-      {
-        title: "Konfigurasi Peer-to-Peer & Sharing File",
-        subtitle: "Pengujian Jaringan Dua Laptop",
-        bullets: [
-          "Setting IP Statis: Laptop A (192.168.1.1) & Laptop B (192.168.1.2).",
-          "Subnet Mask: 255.255.255.0.",
-          "Uji PING via CMD: 'ping 192.168.1.2'.",
-          "Transfer file via UNC path: '\\\\192.168.1.1'."
-        ],
-        bg: "from-slate-900 to-purple-950"
-      }
-    ];
-
-    let currentSlideIndex = 0;
-
-    function renderSlide() {
-      const displayArea = document.getElementById('slide-display-area');
-      const slideCounter = document.getElementById('slide-counter');
-      const slide = pptSlides[currentSlideIndex];
-
-      displayArea.className = `w-full h-full flex flex-col justify-center items-center p-8 text-center bg-gradient-to-br ${slide.bg} transition-all duration-500 rounded-xl`;
-
-      let bulletsHtml = slide.bullets.map(b => `<li class="flex items-center justify-center space-x-2 text-slate-200 text-xs sm:text-sm"><i class="fa-solid fa-circle-check text-pastel-pinkSoft text-xs"></i> <span>${b}</span></li>`).join('');
-
-      displayArea.innerHTML = `
-        <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold text-pastel-pinkSoft uppercase tracking-widest mb-3 backdrop-blur-sm">presentasi.pptx - Slide ${currentSlideIndex + 1}</span>
-        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white mb-2">${slide.title}</h2>
-        <p class="text-pastel-blueSoft text-xs sm:text-sm font-medium mb-6">${slide.subtitle}</p>
-        <ul class="space-y-3 text-left max-w-xl mx-auto bg-black/30 p-5 rounded-2xl border border-white/10 backdrop-blur-md">
-          ${bulletsHtml}
-        </ul>
-      `;
-
-      slideCounter.innerText = `Slide ${currentSlideIndex + 1} / ${pptSlides.length}`;
-    }
-
-    document.getElementById('prev-slide-btn').addEventListener('click', () => {
-      currentSlideIndex = (currentSlideIndex - 1 + pptSlides.length) % pptSlides.length;
-      renderSlide();
-    });
-
-    document.getElementById('next-slide-btn').addEventListener('click', () => {
-      currentSlideIndex = (currentSlideIndex + 1) % pptSlides.length;
-      renderSlide();
-    });
-
-    document.getElementById('fullscreen-ppt-btn').addEventListener('click', () => {
-      const elem = document.getElementById('slide-display-area');
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      }
-    });
-
-    /* ======================================================
-       2. DIRECT DOWNLOAD PPTX GENERATOR (presentasi.pptx)
-       ====================================================== */
-    document.getElementById('download-ppt-btn').addEventListener('click', () => {
-      const pptContent = `PRESENTASI KABEL LAN & PEER TO PEER NETWORK
-Disusun oleh: Oriska Lestari (Kelas 1TIA)
-Institusi: Politeknik Negeri Sriwijaya
-Mata Kuliah: Jaringan Komputer
-Dosen Pengampu: Dr. Ali Firdaus, S.Kom., M.Kom.
-
---- SLIDE 1: PENDAHULUAN ---
-Kabel LAN (Ethernet) digunakan untuk menghubungkan komputer secara lokal.
-Jenis: UTP, STP, FTP.
-Kategori: Cat5e, Cat6.
-
---- SLIDE 2: PERANGKAT & PEMBUATAN ---
-Alat: Tang Crimp, RJ-45, Kabel UTP, Cable Tester.
-Susunan Cross (Crossover):
-Ujung A (T568A): Putih-Hijau, Hijau, Putih-Oranye, Biru, Putih-Biru, Oranye, Putih-Cokelat, Cokelat.
-Ujung B (T568B): Putih-Oranye, Oranye, Putih-Hijau, Biru, Putih-Biru, Hijau, Putih-Cokelat, Cokelat.
-
---- SLIDE 3: KONFIGURASI 2 LAPTOP ---
-Laptop A: IP 192.168.1.1 | Subnet 255.255.255.0
-Laptop B: IP 192.168.1.2 | Subnet 255.255.255.0
-
---- SLIDE 4: UJI PING & FILE SHARING ---
-Perintah CMD: ping 192.168.1.2
-Folder Sharing: UNC Path \\\\192.168.1.1
-`;
-      const blob = new Blob([pptContent], { type: 'application/vnd.openxmlformats-officedocument.presentationml.presentation' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'presentasi.pptx';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-
-    /* ======================================================
-       3. INTERACTIVE TERMINAL CMD SIMULATOR
-       ====================================================== */
-    const cmdForm = document.getElementById('cmd-form');
-    const cmdInput = document.getElementById('cmd-input');
-    const cmdOutput = document.getElementById('cmd-output');
-
-    cmdForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const rawCmd = cmdInput.value.trim();
-      if (!rawCmd) return;
-
-      const cmd = rawCmd.toLowerCase();
-
-      const cmdEcho = document.createElement('p');
-      cmdEcho.className = 'text-white font-bold mt-3';
-      cmdEcho.innerHTML = `C:\\Users\\Oriska&gt; ${rawCmd}`;
-      cmdOutput.appendChild(cmdEcho);
-
-      if (cmd === 'ping 192.168.1.2') {
-        const pingLines = [
-          "Pinging 192.168.1.2 with 32 bytes of data:",
-          "Reply from 192.168.1.2: bytes=32 time<1ms TTL=128",
-          "Reply from 192.168.1.2: bytes=32 time<1ms TTL=128",
-          "Reply from 192.168.1.2: bytes=32 time<1ms TTL=128",
-          "Reply from 192.168.1.2: bytes=32 time<1ms TTL=128",
-          "",
-          "Ping statistics for 192.168.1.2:",
-          "    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),",
-          "Approximate round trip times in milli-seconds:",
-          "    Minimum = 0ms, Maximum = 0ms, Average = 0ms",
-          "Status: [KONEKSI SUKSES - LAPTOP A & B TERHUBUNG!]"
-        ];
-
-        pingLines.forEach((line, idx) => {
-          setTimeout(() => {
-            const p = document.createElement('p');
-            p.className = line.includes('SUKSES') ? 'text-emerald-400 font-bold' : 'text-slate-300';
-            p.innerText = line;
-            cmdOutput.appendChild(p);
-            cmdOutput.scrollTop = cmdOutput.scrollHeight;
-          }, idx * 220);
-        });
-      } else if (cmd === 'ipconfig') {
-        const ipLines = [
-          "Windows IP Configuration",
-          "",
-          "Ethernet adapter Ethernet:",
-          "   IPv4 Address. . . . . . . . . . . : 192.168.1.1",
-          "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
-          "   Default Gateway . . . . . . . . . : "
-        ];
-        ipLines.forEach((line) => {
-          const p = document.createElement('p');
-          p.className = line.includes('192.168.1.1') ? 'text-yellow-300 font-bold' : 'text-slate-300';
-          p.innerText = line;
-          cmdOutput.appendChild(p);
-        });
-      } else if (cmd === 'clear' || cmd === 'cls') {
-        cmdOutput.innerHTML = `
-          <p class="text-slate-400">Microsoft Windows [Version 10.0.19045.3803]</p>
-          <p class="text-slate-400">(c) Microsoft Corporation. All rights reserved.</p>
-        `;
-      } else {
-        const errP = document.createElement('p');
-        errP.className = 'text-red-400';
-        errP.innerText = `'${rawCmd}' is not recognized. Ketik 'ping 192.168.1.2' atau 'ipconfig'.`;
-        cmdOutput.appendChild(errP);
-      }
-
-      cmdInput.value = '';
-      cmdOutput.scrollTop = cmdOutput.scrollHeight;
-    });
-
-    /* ======================================================
-       4. MOBILE MENU DRAWER
-       ====================================================== */
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    mobileBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-
-    window.onload = function() {
-      renderSlide();
-    };
-  </script>
+  <div class="container"> 
+    <div class="card"> 
+      <h1>📊 Presentasi Kabel LAN / Ethernet</h1> 
+      <p class="description"> Presentasi Oriska Lestari • Kelas 1TIA </p> 
+      
+      <!-- ========================================== PREVIEW PPT GOOGLE DRIVE ========================================== --> 
+      <div class="ppt-frame"> 
+        <iframe 
+          src="https://docs.google.com/presentation/d/1zp4QQdqqkb4yIU-9TFJV_rwNwHoD_vWj/edit?usp=drivesdk&ouid=118017947233116267442&rtpof=true&sd=true" allow="autoplay"> 
+        </iframe> 
+      </div> 
+      <!-- ========================================== DOWNLOAD PPT ========================================== --> 
+      <div class="download-area"> 
+        <a href="https://docs.google.com/presentation/d/1zp4QQdqqkb4yIU-9TFJV_rwNwHoD_vWj/edit?usp=drivesdk&ouid=118017947233116267442&rtpof=true&sd=true" class="download-btn"> 
+          ⬇️ Download PPT </a> </div> 
+      <!-- INFORMASI --> 
+      <div class="info"> 
+        <strong>📌 Materi Presentasi</strong> 
+        <p> Presentasi membahas pengertian Kabel LAN/Ethernet, alat-alat yang digunakan, cara membuat kabel LAN, cara menghubungkan dua laptop, pengecekan koneksi, dan cara transfer file antar laptop. 
+        </p> 
+      </div> 
+    </div> 
+  </div>
 </body>
 </html>
